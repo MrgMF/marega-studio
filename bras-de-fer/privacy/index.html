@@ -7,20 +7,20 @@
 <main id="main">
 
 <h1>Bras de Fer: privacy policy</h1>
-<p class="upd">Last updated: 23 November 2026. <a href="../confidentialite/" hreflang="fr" lang="fr">Version française</a></p>
+<p class="upd">Last updated: 24 November 2026. <a href="../confidentialite/" hreflang="fr" lang="fr">Version française</a></p>
 <p><strong>In short:</strong> the app works first on your device, in an encrypted database. Syncing with the Marega Studio server is optional, off by default and subject to your explicit consent. No advertising, no trackers, no analytics, no AI feature.</p>
 <h2>1. Data controller</h2>
 <p>Marega Studio (Fodié Marega, business registration in progress). Contact: <a href="mailto:lufygate@gmail.com">lufygate@gmail.com</a>. Marega Studio runs the app's account and sync server, hosted on Microsoft Azure in the European Union.</p>
 <h2>2. Data processed</h2>
 <ul>
 <li><strong>What you enter</strong>: profile (goal, height, weight, age), workouts, loads, reps, meals, body measurements, habits, exercise photos, saved gyms. They are stored <strong>on your device</strong> in an encrypted database (SQLCipher) whose key stays in the device's secure keychain (iOS Keychain, Android Keystore). This data can reveal health information: it is sensitive data (special category, GDPR article 9).</li>
-<li><strong>Account</strong>: a random account identifier (a guest account created automatically, with no data in it). If you sign in with Apple or Google, the server keeps the opaque identifier they provide; neither your name nor your e-mail is requested or kept.</li>
-<li><strong>Location (optional)</strong>: used only while the app is open, to recognise your gym; gym coordinates stay on the device unless you tick the option to include them in sync. No background location.</li>
+<li><strong>Account</strong>: no account exists until you turn sync on. When you consent, a <strong>guest account</strong> is created automatically: a random identifier and a device secret kept in the keychain, with no name or e-mail. It holds the data you sync and lasts until you withdraw your consent (data erased from the server) or delete your account. Without an Apple or Google link it can only be recovered on this phone. If you link it to Apple or Google, or sign in with them, the server keeps the opaque identifier they provide; neither your name nor your e-mail is requested or kept.</li>
+<li><strong>Location (optional)</strong>: your live location is used only while the app is open, at your initiative, to recognise your gym; it is compared on the device, neither stored nor sent. The coordinates (latitude, longitude) and name of the gyms you save stay on the device, in the encrypted database; they are synced with your account only if sync is on <strong>and</strong> you tick the dedicated option “Include gym locations in sync” (off by default, separate consent). No background location.</li>
 <li><strong>Camera</strong>: only to scan a barcode; the image is neither saved nor sent. <strong>Notifications</strong>: local reminders you turn on. No microphone, no access to Apple Health or Health Connect.</li>
-<li>Never synced: photos, location.</li>
+<li>Never synced: photos and your live location.</li>
 </ul>
 <h2>3. Optional sync (health data)</h2>
-<p>Sync is <strong>off by default</strong>: without consent the app works locally only and no health data is sent. It is only offered once Marega Studio has opened the service. If you turn it on, after a dedicated screen with an unticked box and the exact purpose (backup and restore), your workouts, program, profile, meal history, measurements and a few settings are sent to the server over an encrypted connection, then resynced after each change and when the app opens.</p>
+<p>Sync is <strong>off by default</strong>: without consent the app works locally only and no health data is sent. It requires, in this order, an account, a declaration that you are at least 15 and your consent. If you turn it on, after a dedicated screen with two unticked boxes (age declaration, explicit consent to processing your health data) and the exact purpose (backup and restore), your workouts, program, profile, meal history, measurements and a few settings are sent to the server over an encrypted connection, then resynced after each change and when the app opens.</p>
 <ul>
 <li><strong>Single purpose</strong>: giving your data back to you (reinstall, new phone). No analysis, no profiling, no advertising, no sharing with any third party.</li>
 <li><strong>Legal basis</strong>: your explicit consent (art. 6.1.a and 9.2.a). The server records the version of the text accepted, the date and the source, and refuses any sync read or write without valid consent.</li>
@@ -42,7 +42,8 @@
 <li><strong>Microsoft Azure</strong> (processor), region <strong>Denmark East</strong>, European Union: hosting of the server, its database and encrypted backups. An encrypted copy is sent to Azure storage in France (European Union). Your health data does not leave the European Union.</li>
 <li><strong>Apple</strong> or <strong>Google</strong> if you sign in with them: they know you use the app, never your data; they act under their own policy. Apple (App Store) or Google Play for the possible in-app purchase.</li>
 <li><strong>Open Food Facts</strong> (open database), contacted directly from your device when you search a food or scan a barcode: the text or number searched is sent, and your IP address is visible to that service. No other personal data.</li>
-<li>Earlier versions offered an optional backup to your own private GitHub repository. It is no longer used; if you had set it up, old backups remain at GitHub and are not erased by the app: delete them yourself from your repository.</li>
+<li>There is no longer any backup to GitHub or Google Drive, nor any export button in the app. A one-off, read-only import of the old backup remains possible (file, or the old version's private GitHub repository with a read-only token that is never kept); it erases or changes nothing at GitHub. If you had set up the old backup, those files remain at GitHub: delete them yourself from your repository.</li>
+<li><strong>Web version (PWA) only</strong>: the gym search may query OpenStreetMap (Nominatim, Overpass) only after your explicit consent, which you can withdraw at any time; these services receive the area or text searched and your IP address. The native app sends no OpenStreetMap request. The encrypted backup to a GitHub repository in the web version is enabled only by a separate box, unticked by default.</li>
 <li>Stripe is not used. No advertising, no analytics.</li>
 </ul>
 <p>The server makes no voluntary transfer outside the European Union. Apple, Google and Open Food Facts apply their own policies and transfer safeguards.</p>
@@ -57,7 +58,7 @@
 <li>You may lodge a complaint with the <a href="https://www.cnil.fr/">CNIL</a> (cnil.fr/fr/plaintes).</li>
 </ul>
 <h2>8. Age: digital majority</h2>
-<p>The app is for people aged <strong>15 or over</strong> (age of digital majority in France, Data Protection Act, article 45), confirmed by a declaration. It is not intended for younger people; if you believe someone under 15 created an account, write to us and we will delete it.</p>
+<p>The app is for people aged <strong>15 or over</strong> (age of digital majority in France, Data Protection Act, article 45), confirmed by a declaration before consent. No exact age is requested or kept: the server only records “at least 15” and the date. If you declare you are under 15, sync is stopped and the account is deleted from the server; offline, this deletion is queued and retried automatically as soon as the server is reachable (your local data stays on the phone). If you believe someone under 15 created an account, write to us and we will delete it.</p>
 <h2>9. Disclaimer</h2>
 <p>Bras de Fer is a fitness log, not a medical device; it does not replace the advice of a health professional.</p>
 <h2>10. Changes</h2>
